@@ -12,3 +12,6 @@
 
    ```bash
    docker compose -f moro-bundle.yml up
+3. **To check client system resource info navigate to:**
+   ```bash
+   https://localhost:8088/systemResource
