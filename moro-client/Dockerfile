@@ -2,14 +2,11 @@ FROM openjdk:17 as build
 
 WORKDIR /moro-client
 
-# Copy maven executable to the image
 COPY mvnw .
 COPY .mvn .mvn
 
-# Copy the pom.xml file
 COPY pom.xml .
 
-# Fetch all dependencies
 RUN ./mvnw dependency:go-offline -B
 
 COPY src src
