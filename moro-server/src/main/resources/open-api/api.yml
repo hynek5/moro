@@ -1,0 +1,92 @@
+openapi: '3.0.1'
+info:
+  title: 'moro api'
+  version: 0.0.1
+#servers:
+#  - url: http://34.159.46.158:8080/api
+#    description: Development server
+#  - url: https://34.159.46.158:8080/api
+#    description: Development server with TLS Profile
+
+paths:
+  /systemResourceInfo:
+    get:
+      tags:
+        - 'system resource '
+      operationId: fetchsystemResouceInfo
+      summary: 'Retrieve system resource info'
+      description: "Retrieve system resource info'"
+#      parameters:
+#        - name: teamId
+#          in: query
+#          required: false
+#          schema:
+#            $ref: '#/components/schemas/id'
+#        - name: projectId
+#          in: query
+#          required: false
+#          schema:
+#            $ref: '#/components/schemas/id'
+#        - name: videoId
+#          in: query
+#          required: false
+#          schema:
+#            $ref: '#/components/schemas/id'
+      responses:
+        200:
+          description: Rendenred page
+          content:
+            text/html:
+              schema:
+                type: string
+
+          #$ref: '#/components/schemas/systemResourceInfoDto'
+#        400:
+#          $ref: 'responses/DefaultResponses.yaml#/components/responses/400'
+#        401:
+#          $ref: 'responses/DefaultResponses.yaml#/components/responses/401'
+#        403:
+#          $ref: 'responses/DefaultResponses.yaml#/components/responses/403'
+#        404:
+#          $ref: 'responses/DefaultResponses.yaml#/components/responses/404'
+#        500:
+#          $ref: 'responses/DefaultResponses.yaml#/components/responses/500'
+components:
+  schemas:
+    systemResourceInfoDto:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+                description: Unique identifier for the resource.
+              clientName:
+                type: string
+                description: Name of the client.
+              cpuUsage:
+                type: number
+                format: double
+                description: CPU usage percentage.
+              memoryUsage:
+                type: integer
+                format: int64
+                description: Memory usage in bytes.
+              operatingSystem:
+                type: string
+                description: Operating system of the client.
+              totalMemory:
+                type: integer
+                format: int64
+                description: Total memory in bytes.
+              freeMemory:
+                type: integer
+                format: int64
+                description: Free memory in bytes.
+            required:
+              - id
+              - clientName
+              - cpuUsage
+              - memoryUsage
+              - operatingSystem
+
+

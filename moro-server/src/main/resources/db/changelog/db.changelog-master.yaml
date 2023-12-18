@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: dev
+      changes:
+        - createTable:
+            tableName: dummy_table
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: dev
+      changes:
+        - createTable:
+            tableName: system_resource_info
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    autoIncrement: false
+              - column:
+                  name: client_name
+                  type: varchar(100)
+              - column:
+                  name: cpu_usage
+                  type: double
+              - column:
+                  name: memory_usage
+                  type: bigint
+              - column:
+                  name: operating_system
+                  type: varchar(100)
+              - column:
+                  name: total_memory
+                  type: bigint
+              - column:
+                  name: free_memory
+                  type: bigint

@@ -1,0 +1,10 @@
+server:
+  port: 8087
+
+websocket:
+  server:
+    url: wss://moro-server:8080/systemResourceInfo
+  client:
+    name: moro-client1
+    trust-store: classpath:truststore/keystore.p12
+    trust-store-password: passw0rd

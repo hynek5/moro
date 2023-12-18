@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  ssl:
+    enabled: true
+    protocol: TLS
+    enabled-protocols: TLSv1.2
+    key-store-type: PKCS12
+    key-store: classpath:keystore/keystore.p12
+    key-store-password: passw0rd
+
+spring:
+  thymeleaf:
+    reactive:
+      max-chunk-size: 8192
+    prefix: file:src/main/resources/templates/
+  r2dbc:
+    url: r2dbc:postgresql://moro-postgresql:5432/moro
+    #url: r2dbc:postgresql://localhost:5432/moro
+    username: moro
+    password:
+  liquibase:
+    url: jdbc:postgresql://moro-postgresql:5432/moro
+    #url: jdbc:postgresql://localhost:5432/moro
+    user: moro

@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  your-app:
+    image: moro-server
+    ports:
+      - "8080:8080"  
+    depends_on:
+      - moro-postgresql
+
+  moro-postgresql:
+    image: postgres:14.5
+    environment:
+      - POSTGRES_USER=moro
+      - POSTGRES_PASSWORD=your_password  # Set your database password here
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "127.0.0.1:5432:5432"
