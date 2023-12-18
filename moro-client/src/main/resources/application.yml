@@ -3,7 +3,7 @@ server:
 
 websocket:
   server:
-    url: wss://moro-server:8080/systemResourceInfo
+    url: wss://moro-server:8088/systemResourceInfo
   client:
     name: moro-client1
     trust-store: classpath:truststore/keystore.p12

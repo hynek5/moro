@@ -3,7 +3,7 @@ services:
   moro-server:
     image: moro-server
     ports:
-      - "8080:8080"  
+      - "8088:8088"  
     depends_on:
       - moro-postgresql
 
