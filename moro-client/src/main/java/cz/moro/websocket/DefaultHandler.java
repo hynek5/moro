@@ -49,7 +49,7 @@ public class DefaultHandler implements WebSocketHandler {
         SystemResourceInfo systemInfo = new SystemResourceInfo();
         OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
         systemInfo.setOperatingSystem(osBean.getName());
-        systemInfo.setCpuUsage(osBean.getCpuLoad());
+        systemInfo.setCpuUsage(toPercentage(osBean.getCpuLoad()));
         systemInfo.setTotalMemory(osBean.getTotalMemorySize());
         systemInfo.setFreeMemory(osBean.getFreeMemorySize());
         systemInfo.setMemoryUsage(osBean.getTotalMemorySize() - osBean.getFreeMemorySize());
@@ -72,5 +72,9 @@ public class DefaultHandler implements WebSocketHandler {
         DataBuffer buffer = factory.allocateBuffer(bytes.length);
         buffer.write(bytes);
         return buffer;
+    }
+
+    private double toPercentage(double input) {
+        return input*100;
     }
 }
